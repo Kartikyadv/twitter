@@ -51,11 +51,11 @@ const Tweet = ({ tweet }) => {
                             <h1 className='font-bold'>{tweet?.userDetails[0]?.name}</h1>
                             <p className='text-gray-500 text-sm ml-1'>{`@${tweet?.userDetails[0]?.username} . ${timeSince(tweet?.createdAt)}`}</p>
                         </div>
-                        <div className='flex items-center'>
-                            <img src={tweet?.imageUrl[0]}/>
-                        </div>
                         <div>
                             <p>{tweet?.description}</p>
+                        </div>
+                        <div className='flex items-center'>
+                            <img src={tweet?.imageUrl[0]}/>
                         </div>
                         <div className='flex justify-between my-3'>
                             <div className='flex items-center'>

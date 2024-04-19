@@ -9,29 +9,27 @@ import { getAllTweets, getIsActive, getRefresh } from "../redux/tweetSlice";
 
 const CreatePost = () => {
   const [image, setImage] = useState(null);
+  const [description, setDescription] = useState(""); // Fixed initial state value
 
-  const handleImageChange = (e) => {
-    const selectedImage = e.target.files[0];
-    if (selectedImage) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(selectedImage);
-    }
-  };
-  const [description, setDescription] = useState("");
   const { user } = useSelector((store) => store.user);
   const { isActive } = useSelector((store) => store.tweet);
   const dispatch = useDispatch();
 
+  const handleImageChange = (e) => {
+    const selectedImage = e.target.files[0];
+    if (selectedImage) {
+      setImage(selectedImage);
+    }
+  };
+
   const submitHandler = async () => {
     try {
-      console.log(image);
       const formData = new FormData();
       formData.append("description", description);
       formData.append("id", user?._id);
-      formData.append("image", image);
+      if (image) { // Check if image is selected before appending to formData
+        formData.append("image", image);
+      }
       const res = await axios.post(
         `${TWEET_API_END_POINT}/create`,
         formData,
@@ -49,9 +47,10 @@ const CreatePost = () => {
       }
     } catch (error) {
       toast.error(error.response.data.message);
-      console.log(error);
+      console.error(error);
     }
-    setDescription("");
+    setDescription(""); // Clear description after submission
+    setImage(null); // Clear image after submission
   };
 
   const forYouHandler = () => {
@@ -115,7 +114,7 @@ const CreatePost = () => {
               <label htmlFor="image-upload-input" className="cursor-pointer">
                 {image ? (
                   <img
-                    src={image}
+                    src={URL.createObjectURL(image)} // Use URL.createObjectURL to display the selected image
                     alt="Uploaded"
                     className="max-w-xs max-h-xs w-16 h-16 border-2 border-gray-300 flex justify-center items-center"
                   />

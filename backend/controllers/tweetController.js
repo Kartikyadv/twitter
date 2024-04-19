@@ -21,7 +21,6 @@ export const createTweet = async (req, res) => {
     const location = "delhi";
     const images = req.files;
     const userDetails = await User.findById(userId);
-    console.log(req.file);
 
     if(images || caption){
         if(images){

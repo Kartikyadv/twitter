@@ -27,7 +27,7 @@ const Body = () => {
         }
     ])
     return (
-        <div className=''>
+        <div className='mt-3'>
             <RouterProvider router={appRouter} />
         </div>
     )

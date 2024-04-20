@@ -1,0 +1,2 @@
+// export const LOGIN_LOGO_DARK_MODE = "https://upload.wikimedia.org/wikipedia/commons/9/95/Twitter_new_X_logo.png";
+// export const LOGIN_LOGO_LIGHT_MODE = "https://www.edigitalagency.com.au/wp-content/uploads/new-Twitter-logo-x-black-png-1200x1227.png";

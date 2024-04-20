@@ -1,6 +1,7 @@
 import {configureStore,combineReducers} from "@reduxjs/toolkit";
 import userSlice from "./userSlice";
 import tweetSlice from "./tweetSlice";
+import darkModeReducer from './darkModeReducer.js';
 
 import {
     persistStore,
@@ -13,6 +14,7 @@ import {
     REGISTER,
   } from 'redux-persist'
   import storage from 'redux-persist/lib/storage'
+import appSlice from "./appSlice";
 
 const persistConfig = {
     key: 'root',
@@ -23,6 +25,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user:userSlice,
     tweet:tweetSlice,
+    darkMode: darkModeReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)
 

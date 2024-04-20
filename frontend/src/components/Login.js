@@ -3,8 +3,11 @@ import axios from "axios";
 import { USER_API_END_POINT } from "../utils/constant";
 import toast from "react-hot-toast";
 import {useNavigate} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 import { getUser } from '../redux/userSlice';
+import LOGIN_LOGO_DARK_MODE2 from "../images/LOGIN_LOGO_DARK_MODE2.png"
+import LOGIN_LOGO_LIGHT_MODE from "../images/LOGIN_LOGO_LIGHT_MODE.png"
+
 
 const Login = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -14,6 +17,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const darkMode = useSelector(state => state.darkMode);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -55,23 +59,22 @@ const Login = () => {
     }
   }
 
-
   const loginSignupHandler = () => {
     setIsLogin(!isLogin);
   }
 
   return (
     <div className='w-screen h-screen flex items-center justify-center'>
-      <div className='flex items-center justify-evenly w-[80%]'>
+      <div className='flex items-center justify-evenly w-[90%] md:w-[80%] flex-col md:flex-row'>
         <div>
-          <img className='ml-5' width={"300px"} src="https://www.edigitalagency.com.au/wp-content/uploads/new-Twitter-logo-x-black-png-1200x1227.png" alt="twitter-logo" />
+          <img className='ml-5 w-10 md:w-72' src={darkMode? LOGIN_LOGO_DARK_MODE2: LOGIN_LOGO_LIGHT_MODE} alt="twitter-logo" />
         </div>
         <div>
           <div className='my-5'>
             <h1 className='font-bold text-6xl'>Happening now.</h1>
           </div>
-          <h1 className='mt-4 mb-2 text-2xl font-bold'>{isLogin ? "Login" : "Singup"}</h1>
-          <form onSubmit={submitHandler} className='flex flex-col w-[55%]'>
+          <h1 className='mt-4 mb-2 text-2xl font-bold'>{isLogin ? "Login" : "Signup"}</h1>
+          <form onSubmit={submitHandler} className='flex flex-col w-[85%] md:w-[55%] ml-6 md:ml-0'>
             {
               !isLogin && (<>
                 <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder='Name' className="outline-blue-500 border border-gray-800 px-3 py-2 rounded-full my-1 font-semibold" />

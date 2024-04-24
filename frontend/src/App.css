@@ -2,3 +2,27 @@
     background: black;
     color: white;
 }
+.sidebar {
+    /* Your regular styles */
+    width: 250px;
+    background-color: white;
+    padding: 20px;
+  }
+  
+  /* Media query for mobile screens */
+  @media (max-width: 768px) {
+    @keyframes slideInFromLeft {
+        0% {
+          transform: translateX(-100%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }      
+      .sidebar {
+        /* Your existing styles */
+        /* Apply animation */
+        position: fixed;
+        animation: slideInFromLeft 0.3s ease forwards;
+      }
+  }

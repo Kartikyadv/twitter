@@ -52,7 +52,7 @@ const Profile = () => {
             <div>
                 <div className='flex items-center py-2'>
                     <Link to="/" className='p-2 rounded-full hover:bg-gray-100 hover:cursor-pointer'>
-                        <IoMdArrowBack size="24px" />
+                        <IoMdArrowBack size="24px"/>
                     </Link>
                     <div className='ml-2'>
                         <h1 className='font-bold text-lg'>{profile?.name}</h1>

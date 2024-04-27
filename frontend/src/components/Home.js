@@ -1,6 +1,5 @@
 import React,{useEffect, useState} from 'react'
 import LeftSidebar from './LeftSidebar'
-import LeftSidebarMobile from './LeftSidebarMobile.js'
 import RightSidebar from './RightSidebar'
 import { Outlet, useNavigate } from "react-router-dom";
 import useOtherUsers from '../hooks/useOtherUsers';

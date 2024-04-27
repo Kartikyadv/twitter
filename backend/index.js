@@ -7,6 +7,7 @@ import tweetRoute from "./routes/tweetRoute.js";
 import cors from "cors";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "./firebase/firebaseconfig.js";
+import { Server } from "socket.io";
 
 dotenv.config({
     path:".env"
@@ -35,6 +36,24 @@ app.use("/api/v1/user",userRoute);
 app.use("/api/v1/tweet", tweetRoute);
  
 
-app.listen(process.env.PORT,() => {
+const server = app.listen(process.env.PORT,() => {
     console.log(`Server listen at port ${process.env.PORT}`);
 })
+
+const io = new Server(server, {
+    cors: {
+      origin: "http://localhost:3000",
+      credentials: true
+    }
+  }); // Pass the HTTP server instance to Socket.IO
+
+// Socket.IO logic
+io.on("connection", (socket) => {
+    console.log("client connected");
+
+    // Handle events here
+
+    socket.on("disconnect", () => {
+        console.log("client disconnected");
+    });
+});

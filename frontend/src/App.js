@@ -23,7 +23,6 @@ function App() {
       >
         {darkMode ? <FiSun /> : <FaMoon color='black' />}
       </button>
-
       <Body />
       <Toaster />
     </div>

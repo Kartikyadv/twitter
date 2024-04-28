@@ -15,6 +15,9 @@ dotenv.config({
 databaseConnection();
 const app = express(); 
 
+app.get("/testing",(req,res)=>{
+    res.send("hi")
+})
 
 // Initialize Firebase
 initializeApp(firebaseConfig);

@@ -5,16 +5,16 @@ import Home from "./Home";
 import Feed from "./Feed";
 import Profile from "./Profile";
 import Messages from "./Messages.js";
-import { SocketProvider } from "../utils/socket.js";
+// import { SocketProvider } from "../utils/socket.js";
 
 const Body = () => {
   const appRouter = createBrowserRouter([
     {
       path: "/",
       element: (
-        <SocketProvider>
+        // <SocketProvider>
           <Home />
-        </SocketProvider>
+        // </SocketProvider>
       ),
       children: [
         {

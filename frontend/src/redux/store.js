@@ -15,7 +15,7 @@ import {
   } from 'redux-persist'
   import storage from 'redux-persist/lib/storage'
 import appSlice from "./appSlice";
-import socketSlice from "./socketSlice.js";
+// import socketSlice from "./socketSlice.js";
 
 const persistConfig = {
     key: 'root',
@@ -26,7 +26,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
     user:userSlice,
     tweet:tweetSlice,
-    sokcet:socketSlice,
+    // sokcet:socketSlice,
     darkMode: darkModeReducer,
 })
 const persistedReducer = persistReducer(persistConfig, rootReducer)

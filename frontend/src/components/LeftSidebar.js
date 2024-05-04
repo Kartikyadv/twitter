@@ -12,13 +12,13 @@ import axios from "axios";
 import { USER_API_END_POINT } from "../utils/constant";
 import toast from "react-hot-toast";
 import { getMyProfile, getOtherUsers, getUser } from "../redux/userSlice";
-import { deleteSocket, SocketContext } from '../utils/socket';
+// import { deleteSocket, SocketContext } from '../utils/socket';
 
 const LeftSidebar = ({ sidebarOpen }) => {
   const { user } = useSelector((store) => store.user);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const socket = useContext(SocketContext);
+  // const socket = useContext(SocketContext);
 
 
 
@@ -28,7 +28,7 @@ const LeftSidebar = ({ sidebarOpen }) => {
       dispatch(getUser(null));
       dispatch(getOtherUsers(null));
       dispatch(getMyProfile(null));
-      deleteSocket(socket);
+      // deleteSocket(socket);
       navigate("/login");
       toast.success(res.data.message);
     } catch (error) {

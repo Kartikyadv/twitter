@@ -15,7 +15,7 @@ dotenv.config({
 databaseConnection();
 const app = express(); 
 
-app.get("/testing",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("hi")
 })
 
@@ -29,7 +29,7 @@ app.use(express.urlencoded({
 app.use(express.json());
 app.use(cookieParser());
 const corsOptions = {
-    origin:[process.env.PROD_FRONTEND_URL,process.env.DEV_FRONTEND_URL],
+    origin:process.env.FRONTEND_URL,
     credentials:true
 }
 app.use(cors(corsOptions));

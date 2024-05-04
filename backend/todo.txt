@@ -2,3 +2,4 @@ make work on both local and prod
 upgrade frontend code i.e replace backend url
 https://twitter-five-flax.vercel.app/ - furl
 https://twitter-mujz.onrender.com/  - burl
+mongodb+srv://ky5986390:Jaiguruji001@prottledb.qtv1u94.mongodb.net/?retryWrites=true
